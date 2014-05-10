@@ -68,7 +68,7 @@
 		  <div class="list-group">
 		  <a href="#" class="list-group-item active">Categories</a>
 			<% for category in categories %>
-		  		<%= link_to(category.name,{ :action => :products, :id => category}, {:class=>"list-group-item"}) %>
+		  		<%= link_to(category.name,{ :controller => :store, :action => :products, :id => category}, {:class=>"list-group-item"}) %>
 		   <% end %>
 		</div>
 		  </div>
