@@ -1,0 +1,25 @@
+<h3>Admin- Products</h3>
+<table>
+	<head>
+		<tr>
+			<th>Image</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>On Sale</th>
+			<th>Category</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% for product in @products %>
+		<tr>
+			<td><%= 'image' %></td>
+			<td><%= product.name%></td>
+			<td><%= product.price %></td>
+			<td><%= product.onsale ? "yes" : "no" %></td>
+			<td><%= product.category.name %></td>
+			<td>Actions</td>
+		</tr>
+	<% end %>
+	<tbody>
+</table>

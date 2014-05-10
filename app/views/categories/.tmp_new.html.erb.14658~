@@ -1,0 +1,9 @@
+<h3>Create New Category</h3>
+
+
+<%= form_for(@category, :url => {:action => :create}) do |f| %>
+  <%= errors_for @category %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<%= submit_tag("Submit") %>
+	<input type="button" value="Cancel" />
+<% end %>

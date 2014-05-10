@@ -1,0 +1,8 @@
+<h3>Sign up</h3>
+
+<%= form_for(@user, :url => {:action => :process_sign_up}) do |f| %>
+  <%= errors_for @user %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<%= submit_tag("Sign Up") %>
+	<input type="button" value="Cancel" />
+<% end %>

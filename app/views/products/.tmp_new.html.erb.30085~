@@ -1,0 +1,9 @@
+<h3>Create New Product</h3>
+
+
+<%= form_for(@product, :url => {:action => :create}) do |f| %>
+  <%= errors_for @product %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<%= submit_tag("Submit") %>
+	<input type="button" value="Cancel" />
+<% end %>

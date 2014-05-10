@@ -1,0 +1,16 @@
+<h3>Create New Category</h3>
+
+<%= form_tag(:url => {:action => :create}) do%>
+	<table>
+		<tr>
+			<td>Name</td>
+			<td><%= text_field(:category, :name) %></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><%= text_area(:category, :description) %></td>
+		</tr>
+	</table>
+	<% submit_tag("Submit") %>
+	<input type="button" value="Cancel" />
+<% end %>

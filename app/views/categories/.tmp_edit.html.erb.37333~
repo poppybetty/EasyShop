@@ -1,0 +1,9 @@
+<h3>Create Edit Category</h3>
+
+
+<%= form_for(@category, :url => {:action => :update, :id => @category}, :html => {:id => "form-category"}) do |f| %>
+  <%= errors_for @category %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<%= submit_tag("Submit") %>
+	<input type="button" value="Cancel" />
+<% end %>

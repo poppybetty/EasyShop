@@ -1,0 +1,14 @@
+<h3>Create Edit product</h3>
+
+
+<%= form_for(@product, :url => {:action => :update, :id => @product}, :html => {:id => "form-product", :class => "form-horizontal"}) do |f| %>
+  <%= errors_for @product %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+			<div class="form-group">
+	    <label for="" class="col-sm-2 control-label"></label>
+	    <div class="col-sm-3">
+	      <%= submit_tag("Submit", :class=> "btn btn-default") %>
+		  <%= link_to "Back", :controller => "products", :action => :admin_list, :class => "btn btn-default" %>
+	    </div>
+</div>
+<% end %>

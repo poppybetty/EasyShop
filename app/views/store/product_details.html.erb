@@ -1,0 +1,41 @@
+<h3>Product details for <%= @product.name %></h3>
+
+<div class="form-horizontal">
+<div class="form-group">
+    <label for="" class="col-sm-2 control-label">Product Name</label>
+    <div class="col-sm-3">
+      <%= @product.name %>
+    </div>
+</div>
+<div class="form-group">
+    <label for="" class="col-sm-2 control-label">Category</label>
+    <div class="col-sm-3">
+      <%= @product.category.name %>
+    </div>
+</div>
+<div class="form-group">
+    <label for="" class="col-sm-2 control-label">Price</label>
+    <div class="col-sm-3">
+      <%= @product.price %>
+    </div>
+</div>
+<div class="form-group">
+    <label for="" class="col-sm-2 control-label">
+    	Description	
+    </label>
+	<div class="col-sm-3">
+       <%= @product.description %>
+    </div>
+</div>
+<div class="form-group">
+    <label for="" class="col-sm-2 control-label"></label>
+    <div class="col-sm-3">
+	  <%= link_to( "Back", {:controller => :store, :action => :products, :id => @product.category}, {:class => "btn"})%>
+	  <%= link_to( "Buy", {:controller => :store, :action => :buy, :id => @product}, {:class => "btn btn-warning"})%>
+    </div>
+</div>
+</div>
+
+
+
+
