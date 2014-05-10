@@ -54,6 +54,10 @@ class UsersController < ApplicationController
     redirect_to :action => :sign_in
   end
   
+  def list
+    render :layout => "application"
+  end
+  
   private 
   def validate_password(user)
     pswd = params[:password]
@@ -69,9 +73,7 @@ class UsersController < ApplicationController
     return user
   end
   
-  def list
-    render layout => "welcome"
-  end
+
   
   def save_session
     session[:user_id] = @user.id

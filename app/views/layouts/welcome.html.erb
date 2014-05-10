@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-	<title>EasyShop</title>
+	<title>BUCO - Built with us!</title>
   	<%= stylesheet_link_tag    "application", :media => "all" %>
   	<%= javascript_include_tag "application" %>
 	
@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">EasyShop</a>
+          <a class="navbar-brand" href="#">BUCO - Build with us!</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -38,14 +38,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-   <!-- <div class="jumbotron">
-      <div class="container">
-        <h2>EasyShop</h2>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-   	    
-	  </div>
-    </div>  -->
 
     <div class="container">
       <% if flash[:notice] %>
@@ -60,6 +52,9 @@
 			  <strong>Error!</strong> <%= flash[:error] %>
 		  </div>
 	  <% end %>
+	  <div class="jumbotron">
+	  Defined by entrepreneurship, authenticity, expertise and collaboration, BUCO is your first choice for hardware and buildware.We know building materials, now we want to know you better.
+	  </div>
 	  <%= flash[:notice] %>
 	   <%= yield %>
 	  

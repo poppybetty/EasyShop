@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
    attr_accessible :title, :firstname, :lastname, :email, :password, :address1, :address2,  :address3, :postal_code, :cellphone
    before_create :add_role
-   
+   has_many :orders
    has_many :users_roles
    has_many :roles, :through => :users_roles
    

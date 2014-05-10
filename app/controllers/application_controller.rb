@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
   
   def customer_controllers
-    ["store","users"]
+    ["store","users","orders"]
   end
   
   def authorization
