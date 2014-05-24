@@ -78,6 +78,8 @@ class StoreController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Profile updated successful"
+    else
+      flash[:error] = "Could not update profile, plrease try again"
     end
     
     redirect_to :action => :list
