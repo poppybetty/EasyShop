@@ -58,6 +58,11 @@ class UsersController < ApplicationController
     render :layout => "application"
   end
   
+    
+  def my_profile
+    @user = current_user    
+  end
+  
   private 
   def validate_password(user)
     pswd = params[:password]
@@ -72,7 +77,6 @@ class UsersController < ApplicationController
     end 
     return user
   end
-  
 
   
   def save_session

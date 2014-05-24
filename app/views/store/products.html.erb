@@ -22,9 +22,14 @@
 				<td><%= product.price %></td>
 				<td><%= product.onsale ? "yes" : "no" %></td>
 				<td>
-					<%= form_tag({:action => "add_to_cart", :id => product}, :remote => true) do %>
-	                  <%= select_tag "quantity", options_for_select([1,2,3,4,5,6,7,8]) %>
-	                  <%= submit_tag("Add to cart") %>
+					<%= form_tag({:action => "add_to_cart", :id => product}, {:remote => true, :class => "form-horizontal"}) do %>
+	                 <div class="input-group">
+
+						  <%= select_tag "quantity", options_for_select([1,2,3,4,5,6,7,8]),  :class=> "form-control input-sm" %>
+	             	    <span class="input-group-btn">
+							  <%= submit_tag("Add to cart", :class=> "btn btn-primary input-sm ") %>
+						  </span>
+						  </div>
 	                <% end %>
 					
 					<% link_to "Product Details", :action => :product_details, :id => product %>

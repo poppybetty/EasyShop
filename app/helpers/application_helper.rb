@@ -27,4 +27,9 @@ module ApplicationHelper
   def categories
     Category.find(:all)
   end
+  
+      # Formats +amount+ into something like '0000.00'
+  def format_money(amount)
+    number_to_currency amount.to_s, {:unit => "R", :delimiter => '', :seperator => '.'}
+  end
 end

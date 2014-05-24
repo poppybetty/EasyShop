@@ -16,11 +16,11 @@
 		<tr>
 			<td><%= 'image' %></td>
 			<td><%= product.name%></td>
-			<td><%= product.price %></td>
+			<td><%= format_money product.price %></td>
 			<td><%= product.onsale ? "yes" : "no" %></td>
 			<td><%= product.category.name %></td>
 			<td>
-				<%= link_to "Edit", :action => :edit, :id => product %>
+				<%= link_to "Edit", :action => :edit, :id => product %> |
 				<%= link_to "Delete", :action => :destroy, :id => product %>
 			</td>
 		</tr>

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   layout "store"
-  def list
+  def my_orders
     @orders = current_user.orders
   end
+
 end

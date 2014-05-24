@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
   
   def admin_controllers
-    ["categories","products", "users"]
+    ["categories","products", "users", "admin_orders"]
   end
   
   def customer_controllers

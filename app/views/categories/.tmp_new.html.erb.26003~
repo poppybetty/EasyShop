@@ -1,0 +1,15 @@
+<h3>Create New Category</h3>
+
+
+<%= form_for(@category, :url => {:action => :create}, :html => {:class => "form-horizontal"}) do |f| %>
+  <%= errors_for @category %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<div class="form-group">
+	    <label for="" class="col-sm-2 control-label"></label>
+	    <div class="col-sm-3">
+	      <%= submit_tag("Submit", :class=> "btn btn-default") %>
+		  <%= link_to "Back", :controller => "categories", :action => :list, :class => "btn btn-default"%>
+	    </div>
+</div>
+	
+<% end %>

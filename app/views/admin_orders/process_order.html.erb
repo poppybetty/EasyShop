@@ -1,0 +1,86 @@
+<h3> Manage Order</h3>
+<table  class="table table-striped table-bordered table-condensed">
+  <tr>
+    <td width = "20%">
+      <strong> Personl Details </strong>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> fullname</td>
+    <td><%= @order.customer.presentation_name %></td>
+  </tr>
+  <tr>
+    <td> Email Addrss</td>
+    <td><%= @order.customer.email %></td>
+  </tr>
+  <tr>
+    <td>      
+      <strong> Products Details </strong>
+    </td>
+  </tr>
+  <tr>
+    <td> Order Date </td>
+    <td><%= @order.order_date %></td>
+  </tr>
+  <tr>
+    <td> Order Number</td>
+    <td><%= @order.order_no %></td>
+  </tr>
+      <tr>
+    <td> Order Status</td>
+    <td><%= @order.order_status %></td>
+  </tr>
+</table>
+<br/>
+
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <td width = "5%">Qty</td>
+      <td width = "41%">Name</td>
+      <td width = "12%">Unit Price</td>
+      <td width = "12%">Total Per Unit</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%- for item in @items %>
+      <tr>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.category.name %></td>
+        <td><%= format_money item.product.price %></td>
+      </tr>
+    <% end  %>
+  </tbody>
+  <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td bgcolor = "#E2E2E2"><strong> Total:</strong></td>
+        <td bgcolor = "#E2E2E2">
+          <strong><%= format_money(@order.total_price + @order.shipping_cost) %> </strong>
+        </td>
+      </tr>
+    </tbody>
+</table>
+<div class="alert alert-block alert-info">
+	<strong>Information!</strong> Select the status of the Order and submit the form
+	</div>
+<%= form_tag({:action => :complete_process_order, :id => @order}, {:class => "form-horizontal"}) do %>
+  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-2 control-label">Select Status</label>
+	    <div class="col-sm-3">
+	      <%= select_tag(:order_status, options_for_select(Order::PROCESS_ORDER_STATUS), :class=> "form-control")%>
+	    </div>
+	</div>
+
+    <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+	    <div class="col-sm-4">
+	      <%= submit_tag("Update Order", :class => "btn btn-primary") %>
+	    </div>
+	</div>
+	
+	
+<% end %>

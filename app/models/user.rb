@@ -27,6 +27,6 @@ class User < ActiveRecord::Base
    end
  
    def presentation_name
-     self[:firstname].to_s + ""+ self[:lastname].to_s
+     self[:firstname].to_s + " "+ self[:lastname].to_s
    end
 end

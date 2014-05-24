@@ -28,21 +28,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">BUCO - Build with us!</a>
+          <a class="navbar-brand" href="#"><strong></>BUCO - Build with us!</strong></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-			<li><%= link_to "Categories", :controller => :categories, :action => :list %></li>
-            <li><%= link_to "Products", :controller => :products, :action => :admin_list %></li>
-			<li><%= link_to "Users", :controller => :users, :action => :list %></li>
+            <li><a href="#">Home</a></li><li><a>|</a></li>
+			<li><%= link_to "Categories", :controller => :categories, :action => :list %></li><li><a>|</a></li>
+            <li><%= link_to "Products", :controller => :products, :action => :admin_list %></li><li><a>|</a></li>
+			<li><%= link_to "Manage Orders", :controller => :admin_orders, :action => :manage_orders %></li>
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<%if current_user %>
 			  <li><a></>Welcome <%= current_user.firstname %></a></li>
 			<%end %>
-            <li><a href="../navbar/">My Profile</a></li>
+            <li><%= link_to "My Profile", :controller => :categories, :action => :my_profile %><span class="glyphicon-class"></span></li>
             <li class="active"><%= link_to "Sign out", :controller => :users, :action => :sign_out %></li>
           </ul>
         </div><!--/.nav-collapse -->

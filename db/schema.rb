@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(:version => 20140509182035) do
   end
 
   create_table "orders", :force => true do |t|
-    t.integer "user_id"
-    t.date    "order_date"
-    t.integer "status"
-    t.string  "order_no"
-    t.float   "shipping_cost"
-    t.string  "pay_type"
+    t.integer  "user_id"
+    t.datetime "order_date"
+    t.string   "order_status"
+    t.string   "order_no"
+    t.float    "shipping_cost"
+    t.string   "pay_type"
   end
 
   create_table "products", :force => true do |t|

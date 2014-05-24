@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Static Top Navbar Example for Bootstrap</title>
+
+     <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BUCO - Build with us!</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+			<li><%= link_to "Orders", :controller => :orders, :action => :list %></li>
+            <li><%= link_to "Products On Special", :controller => :store, :action => :special %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<%if current_user %>
+			  <li><a></>Welcome <%= current_user.firstname %></a></li>
+			<%end %>
+            <li><a href="../navbar/"><span class="glyphicon-class"></span> My Profile</a></li>
+            <li class="active"><%= link_to "Sign out", :controller => :users, :action => :sign_out %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="container">
+      <% if flash[:notice] %>
+	    <div class="info info-warning info-dismissable">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong>Warning!</strong> <%= flash[:notice] %>
+		  </div>
+	  <% end %>
+	  <% if flash[:error] %>
+	      <div class="alert alert-warning alert-dismissable">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong>Warning!</strong> <%= flash[:error] %>
+		  </div>
+	  <% end %>
+		
+		<div class="row">
+		  <div class="col-xs-12 col-md-3">
+
+		  <div class="list-group">
+		  <a href="#" class="list-group-item active">Categories</a>
+			<% for category in categories %>
+		  		<%= link_to(category.name,{ :controller => :store, :action => :products, :id => category}, {:class=>"list-group-item"}) %>
+		   <% end %>
+		</div>
+		  </div>
+		  <div class="col-xs-12 col-md-9">
+		  	 <div class="alert alert-info">Please select category on the left hand side menu to view products for that category</div>
+		     <%= yield %>
+		  </div>
+		</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script> -->
+  </body>
+</html>
+

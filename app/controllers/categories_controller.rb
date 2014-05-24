@@ -55,5 +55,18 @@ class CategoriesController < ApplicationController
     
     redirect_to :action => :list
   end
+  
+  def my_profile
+    @user = current_user
+  end
+  
+  def update_my_profile
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Profile updated successful"
+    end
+    
+    redirect_to :action => :list
+  end
     
 end

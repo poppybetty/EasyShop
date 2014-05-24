@@ -18,6 +18,11 @@ class StoreController < ApplicationController
     end
   end
   
+  def search_products
+    @search_string = params[:search_product]
+    @products = Product.find(:all, :conditions => "lower(name) like '%#{params[:search_product].downcase}%'")
+  end
+  
   def product_details
     @product = Product.find(params[:id])
   end
@@ -47,6 +52,13 @@ class StoreController < ApplicationController
     # Get our items from orders.
     @items = @order.line_items
   end
+  
+  def order_details        
+    @order = Order.find(params[:id])
+    # Get our items from orders.
+    @items = @order.line_items
+  end
+  
 
   def empty_cart
     session[:cart] = nil
@@ -57,4 +69,18 @@ class StoreController < ApplicationController
   def find_cart
     @cart = (session[:cart] ||= Cart.new)
   end
+       
+  def my_profile
+    @user = current_user
+  end
+  
+  def update_my_profile
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Profile updated successful"
+    end
+    
+    redirect_to :action => :list
+  end
+  
 end

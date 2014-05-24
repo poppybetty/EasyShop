@@ -1,0 +1,42 @@
+<% if @category %>
+	<h3>Products for category <b><%= @category.name %></b></h3>
+	
+	<% if @category.products.empty?%>
+	  <div class="alert alert-warning">No Product for the selected category</div>
+	<% else %>
+	<table class="table table-striped table-bordered table-condensed">
+		<head>
+			<tr>
+				<th>Image</th>
+				<th width="20%">Name</th>
+				<th>Price</th>
+				<th>On Sale</th>
+				<th width="20%">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% for product in @category.products %>
+			<tr>
+				<td><%= 'image' %></td>
+				<td><%= product.name%></td>
+				<td><%= product.price %></td>
+				<td><%= product.onsale ? "yes" : "no" %></td>
+				<td>
+					<%= form_tag({:action => "add_to_cart", :id => product}, :remote => true) do %>
+	                  <%= select_tag "quantity", options_for_select([1,2,3,4,5,6,7,8]) %>
+	                  <%= submit_tag("Add to cart") %>
+	                <% end %>
+					
+					<% link_to "Product Details", :action => :product_details, :id => product %>
+				</td>
+			</tr>
+		<% end %>
+		<tbody>
+	</table>
+	
+	
+	<% end %>
+	
+	<div id="display-cart"></div>
+
+<% end %>	
