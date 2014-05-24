@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :user_id, :order_date, :status, :order_no, :shipping_cost, :pay_type
+  attr_accessible :user_id, :order_date, :order_status, :order_no, :shipping_cost, :pay_type
   before_create :add_date
   has_many :line_items
   belongs_to :customer,
